@@ -1,0 +1,646 @@
+/*Loads an image while loading*/
+#load {
+  width: 200px;
+  background: center center;
+  z-index: 9;
+}
+
+/*Empty swipe area fixed to left side; eases in and out transition animation*/
+#swipe {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+  transition: 0.4s ease-in-out;
+  /*Moves out swipe menu to reveal sidebar */
+}
+@media screen and (min-width: 720px) {
+  #swipe {
+    display: none;
+  }
+}
+#swipe.open-sidebar {
+  position: fixed;
+  left: 150px;
+  z-index: 3;
+}
+
+/*Burger menu icon*/
+.menu_icon {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  filter: opacity(70%);
+  margin: 5% 0 0 5%;
+  z-index: 2;
+  /*Pointer for burger menu*/
+}
+@media screen and (min-width: 720px) {
+  .menu_icon {
+    display: none;
+  }
+}
+.menu_icon:hover {
+  cursor: pointer;
+}
+
+/*Menu sidebar*/
+#sidebar, #sidebar2 {
+  position: absolute;
+  left: -150px;
+  width: 150px;
+  height: 100%;
+  background-color: steelblue;
+  display: inline-block;
+  /*Remove list bullets*/
+}
+@media screen and (min-width: 720px) {
+  #sidebar, #sidebar2 {
+    position: relative;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    left: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #sidebar, #sidebar2 {
+    display: inline-block;
+  }
+}
+#sidebar ul, #sidebar2 ul {
+  list-style: none;
+  padding-left: 0;
+  /*Style menu text/links*/
+}
+@media screen and (min-width: 720px) {
+  #sidebar ul, #sidebar2 ul {
+    text-align: center;
+    padding-top: 5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #sidebar ul, #sidebar2 ul {
+    padding-top: 2%;
+  }
+}
+#sidebar ul li, #sidebar2 ul li {
+  /*Hover color over menu text/links*/
+}
+@media screen and (min-width: 720px) {
+  #sidebar ul li, #sidebar2 ul li {
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+#sidebar ul li a, #sidebar2 ul li a {
+  color: white;
+  padding: 15px 10px;
+  display: block;
+  border-bottom: 1px solid cadetblue;
+  text-decoration: none;
+}
+@media screen and (min-width: 720px) {
+  #sidebar ul li a, #sidebar2 ul li a {
+    border-bottom: none;
+  }
+}
+#sidebar ul li:hover a, #sidebar2 ul li:hover a {
+  background: cadetblue;
+}
+
+@media screen and (min-width: 1280px) {
+  #two {
+    display: none !important;
+  }
+}
+
+/*Search + filter div*/
+#sort {
+  margin: 5%;
+}
+@media screen and (min-width: 720px) {
+  #sort {
+    margin: 2%;
+    width: 30%;
+    display: inline-block !important;
+    top: auto;
+    position: absolute;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #sort {
+    margin: 2%;
+    width: 25%;
+    display: inline-block !important;
+    top: auto;
+    position: absolute;
+  }
+}
+
+/*Search bar*/
+#myInput {
+  background: url(search.png);
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 90%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+@media screen and (min-width: 720px) {
+  #myInput {
+    width: 100%;
+  }
+}
+
+/*Filter menu*/
+#filter {
+  background-image: url("32x32.png");
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  position: absolute;
+  margin: 10px 0 0 6px;
+  /*Hover style of filter menu*/
+}
+#filter:hover {
+  background-image: url("32x32i.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/*Dark background when filter menu is opened*/
+#overlay {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#overlay2 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/*Filter menu window*/
+#options {
+  display: none;
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  z-index: 2;
+  /* Displays modal on top layer above other content */
+  padding: 5%;
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: mediumseagreen;
+}
+@media screen and (min-width: 720px) {
+  #options {
+    display: inline-block !important;
+    position: relative;
+    width: 100%;
+    height: 60%;
+    padding: 5%;
+  }
+}
+#options #types div {
+  display: inline-block;
+}
+@media screen and (min-width: 720px) {
+  #options #types div {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #options #types div {
+    width: auto;
+  }
+}
+
+/*Clear checkboxes button*/
+#btn {
+  display: block;
+  height: 50px;
+  margin: 0 auto 5% auto;
+  border-radius: 8px;
+  font-weight: 500;
+  background-color: #28a745;
+  cursor: pointer;
+  /*Hover style for clear checkboxes*/
+  /*Active style for clear checkboxes*/
+}
+#btn:hover {
+  background-color: #26843b;
+}
+#btn:active {
+  background-color: #155724;
+  transform: translateY(4px);
+}
+
+/*Message for clear checkboxes*/
+#text {
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  #main_list {
+    width: 65%;
+    display: inline-block !important;
+    position: absolute;
+    right: 1%;
+    margin-top: 2%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #main_list {
+    width: 40%;
+    display: inline-block !important;
+    position: absolute;
+    right: 28%;
+    margin-top: 2%;
+  }
+}
+
+/*List of recipes*/
+.recipe_list {
+  /* List of each recipe w/img and name */
+  background: #fff;
+  margin: 5px;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  /*Hover style for recipe lists*/
+}
+@media screen and (min-width: 720px) {
+  .recipe_list {
+    margin: 0 5px 5px 5px;
+  }
+}
+.recipe_list:hover {
+  background-color: #d1d2d1;
+}
+
+/*Div for recipe list img*/
+.imgDiv {
+  margin: 2%;
+  width: 95px;
+}
+
+/*Recipe name in recipe list*/
+.h2List {
+  font-size: 22px;
+  width: 65%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+/*For toggling hide on recipe cards*/
+.hide {
+  display: none;
+}
+
+/*For toggling show on recipe cards*/
+.show {
+  display: block;
+}
+
+/*Recipe card window with content*/
+.recipe_view {
+  /* Detailed view */
+  width: 85%;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: 15% 7.5% 0 7.5%;
+  background-color: #17a2b8;
+  /* Black w/opacity of 40% */
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+@media screen and (min-width: 720px) {
+  .recipe_view {
+    width: auto;
+    margin: 15%;
+    max-width: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .recipe_view {
+    width: 50%;
+    margin-left: 25%;
+    max-width: none;
+  }
+}
+
+/*Div of cooked checkbox*/
+.checkDiv {
+  /* 'Cooked' with checkbox */
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 35px;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Contains both the default checkbox, the custom checkbox, and the text. */
+.container {
+  cursor: pointer;
+  /* Hide standard checkbox */
+}
+.container input {
+  opacity: 0;
+}
+
+/* Style the custom checkbox */
+.checkmark {
+  position: absolute;
+  margin-left: -125px;
+  margin-top: 5px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  /* Create the content to store checkmark/indicator. Hide when not checked. Add to the span checkbmark element. */
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the checkmark for the custom checkbox. Draw a rectangle and tilt it. Hide some sides to make it look like a checkmark. */
+.container {
+  /* Show the checkmark when checked */
+}
+.container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 10px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  /* Width of the each side of the 'rectangle' */
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.container input:checked ~ .checkmark {
+  /* When the default checkbox is checked, change the custom checkbox's background color */
+  background-color: #28a745;
+}
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* "X" closes detailed view; div container */
+.exit {
+  display: inline-block;
+  position: absolute;
+  right: 10%;
+}
+
+/* "X" closes detailed view */
+#exit {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  /*Hover style of "X" close*/
+}
+#exit:hover {
+  color: rgba(31, 54, 78, 0.84);
+}
+
+/* Filter box "X" closes detailed view; div container */
+.exit2 {
+  display: inline-block;
+  position: absolute;
+  right: 5%;
+  top: 0;
+}
+@media screen and (min-width: 720px) {
+  .exit2 {
+    display: none;
+  }
+}
+
+/* Filter "X" closes detailed view */
+#exit2 {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Filter hover style of "X" close*/
+}
+#exit2:hover {
+  color: rgba(31, 54, 78, 0.84);
+}
+
+/*Div of recipe card image */
+.img {
+  margin: 0 2% 0 2%;
+}
+
+/*Title in recipe card*/
+.titleTxt {
+  font-size: 22px;
+  width: 145px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/*Div of stats in recipe cards*/
+.statsDiv {
+  padding-top: 10px;
+  /*Spacing for stats*/
+}
+
+.heartIcon {
+  width: 25px;
+}
+
+.effects {
+  text-align: center;
+}
+
+.effectIcon {
+  margin-right: 2px;
+  height: 25px;
+}
+
+.rupees {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.rupeeIcon {
+  height: 25px;
+  margin-right: 2px;
+}
+
+.ingredients, .description {
+  margin: 0 4%;
+}
+
+.notes {
+  padding: 0 4% 2% 4%;
+}
+
+/*Div of badges section*/
+#badges {
+  text-align: center;
+  /*Badge images*/
+}
+#badges .menu_icon {
+  top: 0;
+  display: block;
+}
+@media screen and (min-width: 720px) {
+  #badges .menu_icon {
+    display: none;
+  }
+}
+#badges div {
+  text-align: center;
+  display: inline-block;
+  margin: 5%;
+}
+#badges #meatBadge, #badges #veggieBadge, #badges #fishBadge, #badges #cakeBadge, #badges #foodBadge {
+  width: 200px;
+  margin-top: 10%;
+}
+@media screen and (min-width: 1280px) {
+  #badges {
+    display: block !important;
+    width: 33%;
+    right: 0;
+    position: absolute;
+    padding-left: 5%;
+  }
+}
+
+/*Div of created by section in About*/
+#createdBy {
+  height: 100vh;
+  width: 100%;
+  background-image: url("botw02.jpg");
+  background-position: 75% 0%;
+  color: white;
+}
+#createdBy p {
+  font-size: 38px;
+  text-align: center;
+}
+#createdBy .darkBox img {
+  width: 50px;
+  margin: auto;
+  display: block;
+}
+
+#twitter a {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+/*Div of Nintendo BotW section in About*/
+#Nintendo {
+  height: 100vh;
+  width: 100%;
+  background-image: url("botw03.jpg");
+  background-position: 50% 20%;
+  color: white;
+}
+#Nintendo p {
+  font-size: 30px;
+  text-align: center;
+}
+
+/*Div of credits section in About*/
+#credits {
+  height: 100vh;
+  width: 100%;
+  background-image: url("botw07.jpg");
+  background-position: 50% 50%;
+  color: white;
+  font-size: 16px;
+  /*Icons in credits*/
+}
+#credits div {
+  margin-bottom: 5%;
+}
+#credits img {
+  width: 40px;
+  display: inline-block;
+}
+#credits a {
+  text-decoration: none;
+  color: aquamarine;
+}
+
+/*Div of thanks section in About*/
+#thanks {
+  height: 100vh;
+  width: 100%;
+  background-image: url("botw09.jpg");
+  background-position: 50% 50%;
+  color: white;
+  text-align: center;
+  /*Gif of link cooking*/
+}
+#thanks .darkBox div {
+  font-size: 18px;
+}
+#thanks .darkBox div a {
+  text-decoration: none;
+  color: white;
+}
+#thanks img {
+  width: 90%;
+  padding-top: 15%;
+}
+
+/*Bg box for text in About section*/
+.darkBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 70%;
+  height: auto;
+  position: relative;
+  margin: auto;
+  top: 10%;
+  padding: 3%;
+}
+@media screen and (min-width: 720px) {
+  .darkBox {
+    width: 40%;
+    top: 15%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
