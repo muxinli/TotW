@@ -541,7 +541,7 @@ $break-large: 1900px;
     margin-top: 10%;
   }
   @media screen and (min-width: $break-desktop) {
-    display: block !important;
+    // display: block !important;
     width: 33%;
     right: 0;
     position: absolute;
