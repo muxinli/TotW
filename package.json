@@ -1,0 +1,27 @@
+{
+  "name": "totw",
+  "version": "1.0.0",
+  "description": "App to keep track of cooking in Breath of the Wild",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muxinli/TotW.git"
+  },
+  "keywords": [
+    "Breath",
+    "of",
+    "the",
+    "Wild",
+    "cooking",
+    "recipes"
+  ],
+  "author": "Muxin Li <m.muxin.li@gmail.com> (https://muxinli.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muxinli/TotW/issues"
+  },
+  "homepage": "https://github.com/muxinli/TotW#readme"
+}
