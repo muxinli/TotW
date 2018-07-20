@@ -8,11 +8,7 @@ window.onload = function() {
       document.querySelector("#thanks").style.display = "none";
 
       if(screen.width >= 1280) {
-        if (document.querySelector("#createdBy").style.display = "none") {
           document.getElementById("badges").style.display = "block";
-        } else {
-          document.getElementById("badges").style.display = "none";
-        }
       }
 }
 
@@ -48,7 +44,11 @@ window.onload = function() {
  
     $(".menu_recipes").click(function(){  //Displays recipes section when menu is clicked
       $("#recipes").css("display", "block");
-      $("#badges").css("display", "none");
+      if(screen.width >= 1280) {
+          document.getElementById("badges").style.display = "block";
+      } else {
+          $("#badges").css("display", "none");
+      }
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
     });
 
