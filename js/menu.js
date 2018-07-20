@@ -6,6 +6,14 @@ window.onload = function() {
       document.querySelector("#Nintendo").style.display = "none";
       document.querySelector("#credits").style.display = "none";
       document.querySelector("#thanks").style.display = "none";
+
+      if(screen.width >= 1280) {
+        if (document.querySelector("#createdBy").style.display = "none") {
+          document.getElementById("badges").style.display = "block";
+        } else {
+          document.getElementById("badges").style.display = "none";
+        }
+      }
 }
 
     $("#swipe").swipe({  //Opens the menu sidebar
