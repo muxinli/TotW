@@ -23,7 +23,7 @@ function scrollThere(targetElement) {
   // initiate an animation to a certain page element:
   $('html, body').stop().animate(
     { scrollTop: targetElement.offset().top }, // move window so target element is at top of window
-    60, // speed in milliseconds
+    50, // speed in milliseconds
     'swing' // easing
   ); // end animate
 } // end scrollThere function definition
