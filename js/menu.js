@@ -7,7 +7,7 @@ window.onload = function() {
       document.querySelector("#credits").style.display = "none";
       document.querySelector("#thanks").style.display = "none";
 
-      if(screen.width >= 1280) {
+      if(window.innerWidth >= 1280) {  //Display badges on the right if browser size is at least 1280px
           document.getElementById("badges").style.display = "block";
       }
 }
@@ -44,7 +44,7 @@ window.onload = function() {
  
     $(".menu_recipes").click(function(){  //Displays recipes section when menu is clicked
       $("#recipes").css("display", "block");
-      if(screen.width >= 1280) {
+      if(window.innerWidth >= 1280) {
           document.getElementById("badges").style.display = "block";
       } else {
           $("#badges").css("display", "none");
@@ -63,4 +63,12 @@ window.onload = function() {
       $("#badges").css("display", "none");
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
     });
+
+    document.body.onresize = function(){  //Hides or displays badges when browser is resized
+      if(window.innerWidth < 1280) {  //Display badges on the right if browser size is at least 1280px
+          document.getElementById("badges").style.display = "none";
+      } else {
+          document.getElementById("badges").style.display = "block";
+      }
+    }
 });
