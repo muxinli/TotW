@@ -110,6 +110,11 @@
     border-bottom: none;
   }
 }
+@media screen and (min-width: 800px) {
+  #sidebar ul li a, #sidebar2 ul li a {
+    padding: 10px;
+  }
+}
 #sidebar ul li:hover a, #sidebar2 ul li:hover a {
   background: cadetblue;
 }
