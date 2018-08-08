@@ -18,8 +18,8 @@ $(".recipe_list").click(function() {  //Shows correct view card when recipe is c
 });
 
 //Hides view card when 'x' is clicked
-$(".exit").click(function() {
-	document.getElementById("overlay").style.display = "none";
+$("#exit").click(function() {
+	document.getElementById("overlay2").style.display = "none";
     document.querySelector(".recipe_view.show").className = "recipe_view hide";
 });
 
