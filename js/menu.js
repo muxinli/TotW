@@ -7,9 +7,9 @@ window.onload = function() {
       document.querySelector("#credits").style.display = "none";
       document.querySelector("#thanks").style.display = "none";
 
-      if(window.innerWidth >= 1280) {  //Display badges on the right if browser size is at least 1280px
-          document.getElementById("badges").style.display = "block";
-      }
+//       if(window.innerWidth >= 1280) {  //Display badges on the right if browser size is at least 1280px
+//           document.getElementById("badges").style.display = "block";
+//       }
 }
 
     $("#swipe").swipe({  //Opens the menu sidebar
