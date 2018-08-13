@@ -44,11 +44,11 @@ window.onload = function() {
  
     $(".menu_recipes").click(function(){  //Displays recipes section when menu is clicked
       $("#recipes").css("display", "block");
-      if(window.innerWidth >= 1280) {
-          document.getElementById("badges").style.display = "block";
-      } else {
-          $("#badges").css("display", "none");
-      }
+//       if(window.innerWidth >= 1280) {
+//           document.getElementById("badges").style.display = "block";
+//       } else {
+//           $("#badges").css("display", "none");
+//       }
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
     });
 
