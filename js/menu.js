@@ -64,7 +64,7 @@ window.onload = function() {
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
     });
 
-    document.body.onresize = function(){  //Hides or displays badges when browser is resized
+    document.window.onresize = function(){  //Hides or displays badges when browser is resized
       if(window.innerWidth < 1280) {  //Display badges on the right if browser size is at least 1280px
           document.getElementById("badges").style.display = "none";
       } else {
