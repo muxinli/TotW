@@ -1,4 +1,4 @@
-$( document ).ready(function(){
+$( window ).load(function(){
 	
 document.getElementById("sidebar").addEventListener("click", function() {  //Add scroll event to just the about section
 	if(document.querySelector("#createdBy").style.display == "block") {
