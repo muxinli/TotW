@@ -633,11 +633,11 @@
 /*Bg box for text in About section*/
 .darkBox {
   background-color: rgba(0, 0, 0, 0.5);
-  width: 70%;
+  width: 80%;
   height: auto;
   position: relative;
   margin: auto;
-  top: 10%;
+  top: 5%;
   padding: 3%;
 }
 @media screen and (min-width: 720px) {
