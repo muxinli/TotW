@@ -18,6 +18,17 @@
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/badges.js"></script>
 	<script type="text/javascript" src="js/about.js"></script>
+	<script type="text/javascript">
+		function updateUrl (page, url) {  //Updates URL without reloading
+	      	if (typeof (history.pushState) != "undefined") {
+	        var obj = { Page: page, Url: url };
+	        window.history.pushState(obj, obj.Page, obj.Url);
+	      } else {  //Alerts if browser is not HTML5 compatible
+	        alert("This browser does not support HTML5. Please use the latest version of Chrome.");
+	      }
+	    }
+
+	</script>
 
 </head>
 
