@@ -37,7 +37,7 @@ window.onload = function() {
     function updateUrl (page, url) {  //Updates URL without reloading
       if (typeof (history.pushState) != "undefined") {
         var obj = { Page: page, Url: url };
-        history.pushState(obj, obj.Page, obj.Url);
+        window.history.pushState(obj, obj.Page, obj.Url);
       } else {  //Alerts if browser is not HTML5 compatible
         alert("This browser does not support HTML5. Please use the latest version of Chrome.");
       }
