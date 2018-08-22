@@ -34,6 +34,15 @@ window.onload = function() {
           }
     });
 
+    function updateUrl (page, url) {  //Updates URL without reloading
+      if (typeof (history.pushState) != "undefined") {
+        var obj = { Page: page, Url: url };
+        history.pushState(obj, obj.Page, obj.Url);
+      } else {  //Alerts if browser is not HTML5 compatible
+        alert("This browser does not support HTML5. Please use the latest version of Chrome.");
+      }
+    }
+
     $(".menu_icon").on("click", function() {
       $("#swipe").addClass("open-sidebar");
       $(".menu_icon").delay(150).queue(function (next) {
@@ -43,25 +52,28 @@ window.onload = function() {
     });
  
     $(".menu_recipes").click(function(){  //Displays recipes section when menu is clicked
-      $("#recipes").css("display", "block");
+      $("#recipes").css("display", "block");      
       if(window.innerWidth >= 1280) {
           document.getElementById("badges").style.display = "block";
       } else {
           $("#badges").css("display", "none");
       }
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
+      updateUrl('Recipes', 'recipes.htm');
     });
 
     $(".menu_badges").click(function(){  //Displays badges section when badges menu is clicked
       $("#recipes").css("display", "none");
       $("#badges").css("display", "block");
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
+      updateUrl('Badges', 'badges.htm');
     });
 
     $(".menu_about").click(function(){  //Displays about section when menu option is clicked
       $("#recipes").css("display", "none");
       $("#badges").css("display", "none");
       $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
+      updateUrl('About', 'about.htm');
     });
 
     document.body.onresize = function(){  //Hides or displays badges when browser is resized

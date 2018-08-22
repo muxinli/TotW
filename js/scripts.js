@@ -1,4 +1,5 @@
 // Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. Anything that pulls from JSON goes here.
+
 // $( document ).ready(function() {  //Adding document.ready in this file will override the code for showing and hiding detailed views. That code depends on this code to run first. Making this code file depend on other documents to load first before running will run the code out of order.
 
   var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
@@ -15,8 +16,8 @@
 
   request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
     var recipes = JSON.parse(request.response);
-    var allRecipes = recipes.data;
-    console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
+    // var allRecipes = recipes.data;
+    // console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
     list(allRecipes);
     viewCard(allRecipes);
     imgSrc(allRecipes);
