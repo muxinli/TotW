@@ -1,34 +1,28 @@
 $( document ).ready(function() {
-	window.onload = function() {
-        $(window).trigger('hashchange');
-  	}
 
-	function updateUrl (page, url) {  //Updates URL without reloading
-	      if (typeof (history.pushState) != "undefined") {
-	        var obj = { Page: page, Url: url };
-	        history.pushState(obj, obj.Page, obj.Url);
-	      } else {  //Alerts if browser is not HTML5 compatible
-	        alert("This browser does not support HTML5. Please use the latest version of Chrome.");
-	      }
-	    }
+	// function updateUrl (page, url) {  //Updates URL without reloading
+	//       if (typeof (history.pushState) != "undefined") {
+	//         var obj = { Page: page, Url: url };
+	//         history.pushState(obj, obj.Page, obj.Url);
+	//       } else {  //Alerts if browser is not HTML5 compatible
+	//         alert("This browser does not support HTML5. Please use the latest version of Chrome.");
+	//       }
+	//     }
 
-    $(function () {  //Changes URL when menu is clicked
-        $(".menu_recipes").click(function () {
-            updateUrl('Page1', 'recipes');
-        });
-        $(".menu_badges").click(function () {
-            updateUrl('Page2', 'badges');
-        });
-        $(".menu_about").click(function () {
-            updateUrl('Page3', 'about');
-        });
-    });
+ //    $(function () {  //Changes URL when menu is clicked
+ //        $(".menu_recipes").click(function () {
+ //            updateUrl('Page1', 'recipes');
+ //        });
+ //        $(".menu_badges").click(function () {
+ //            updateUrl('Page2', 'badges');
+ //        });
+ //        $(".menu_about").click(function () {
+ //            updateUrl('Page3', 'about');
+ //        });
+ //    });
 
-    $(window).on('hashchange', function() {  //Runs render() whenever the URL changes (detects with hashchange). 
-    	render(decodeURI(window.location.hash));  //Runs render() on the current URL. Use decodeURI to get a valid hash without special characters; needed for browser compatibility.
-    });
-
-    function render(url) {
+    function load(url) {
+    	console.log(window.location.hash);
 	    if (window.location.hash == "") {
 	    	document.getElementById("badges").style.display = "none";
 	        document.querySelector("#createdBy").style.display = "none";
