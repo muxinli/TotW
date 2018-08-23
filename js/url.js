@@ -25,15 +25,15 @@ $( document ).ready(function() {
 
     $(function () {  //Changes URL when menu is clicked
         $(".menu_recipes").click(function () {
-        	window.location.hash = "#recipes";
+        	window.location.hash = "recipes";
             // updateUrl('#recipes');
         });
         $(".menu_badges").click(function () {
-        	window.location.hash = "#badges";
+        	window.location.hash = "badges";
             // updateUrl('#badges');
         });
         $(".menu_about").click(function () {
-         	window.location.hash = "#about";
+         	window.location.hash = "about";
            // updateUrl('#about');
         });
     });
