@@ -14,24 +14,27 @@ $( document ).ready(function() {
 	}
 
 
-	function updateUrl (url) {  //Updates URL without reloading
-	      if (typeof (history.pushState) != "undefined") {
-	        var obj = { Url: url };
-	        history.pushState(obj, obj.Page, obj.Url);
-	      } else {  //Alerts if browser is not HTML5 compatible
-	        alert("This browser does not support HTML5. Please use the latest version of Chrome.");
-	      }
-	    }
+	// function updateUrl (url) {  //Updates URL without reloading
+	//       if (typeof (history.pushState) != "undefined") {
+	//         var obj = { Url: url };
+	//         history.pushState(obj, obj.Page, obj.Url);
+	//       } else {  //Alerts if browser is not HTML5 compatible
+	//         alert("This browser does not support HTML5. Please use the latest version of Chrome.");
+	//       }
+	//     }
 
     $(function () {  //Changes URL when menu is clicked
         $(".menu_recipes").click(function () {
-            updateUrl('#recipes');
+        	window.location.hash = "#recipes";
+            // updateUrl('#recipes');
         });
         $(".menu_badges").click(function () {
-            updateUrl('#badges');
+        	window.location.hash = "#badges";
+            // updateUrl('#badges');
         });
         $(".menu_about").click(function () {
-            updateUrl('#about');
+         	window.location.hash = "#about";
+           // updateUrl('#about');
         });
     });
 
