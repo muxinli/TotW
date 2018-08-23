@@ -29,7 +29,7 @@ $( document ).ready(function() {
     });
 
     function render(url) {
-	    if (window.location.hash == "#") {
+	    if (window.location.hash == "") {
 	    	document.getElementById("badges").style.display = "none";
 	        document.querySelector("#createdBy").style.display = "none";
 	        document.querySelector("#Nintendo").style.display = "none";
