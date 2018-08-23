@@ -21,6 +21,16 @@ $( document ).ready(function() {
 	//        });
 	//    });
 
+	$(".menu_recipes").click(function () {  //Updates URL without reload upon menu item click
+		window.location.hash = 'recipes';
+	});
+	$(".menu_badges").click(function () {
+		window.location.hash = 'badges';
+	});
+	$(".menu_about").click(function () {
+		window.location.hash = 'about';
+	});
+
 	window.onload = load(url);  //Triggers load(url) on first load
 
 	window.onhashchange = load(url);  //Triggers load(url) whenever the URL changes
@@ -40,7 +50,7 @@ $( document ).ready(function() {
 	        }
 	    }
 
-	    else if (url == "recipes#") {  //Displays recipes section at recipes url
+	    else if (url == "recipes") {  //Displays recipes section at recipes url
 	      $("#recipes").css("display", "block");
 	      if(window.innerWidth >= 1280) {
 	          document.getElementById("badges").style.display = "block";
@@ -50,13 +60,13 @@ $( document ).ready(function() {
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (url == "badges#") {  //Displays badges section at badges url
+	    else if (url == "badges") {  //Displays badges section at badges url
 	      $("#recipes").css("display", "none");
 	      $("#badges").css("display", "block");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (url == "about#") {  //Displays about section at about url
+	    else if (url == "about") {  //Displays about section at about url
 	      $("#badges").css("display", "none");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
 	    }
