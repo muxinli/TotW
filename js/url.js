@@ -25,11 +25,11 @@ $( document ).ready(function() {
     });
 
     $(window).on('hashchange', function() {  //Runs render() whenever the URL changes (detects with hashchange). 
-    	render(decodeURI(window.location.search));  //Runs render() on the current URL. Use decodeURI to get a valid hash without special characters; needed for browser compatibility.
+    	render(decodeURI(window.location.hash));  //Runs render() on the current URL. Use decodeURI to get a valid hash without special characters; needed for browser compatibility.
     });
 
     function render(url) {
-	    if (window.location.search == "#") {
+	    if (window.location.hash == "#") {
 	    	document.getElementById("badges").style.display = "none";
 	        document.querySelector("#createdBy").style.display = "none";
 	        document.querySelector("#Nintendo").style.display = "none";
@@ -41,7 +41,7 @@ $( document ).ready(function() {
 	        }
 	    }
 
-	    else if (window.location.search == "recipes#") {  //Displays recipes section at recipes url
+	    else if (window.location.hash == "recipes#") {  //Displays recipes section at recipes url
 	      $("#recipes").css("display", "block");
 	      if(window.innerWidth >= 1280) {
 	          document.getElementById("badges").style.display = "block";
@@ -51,13 +51,13 @@ $( document ).ready(function() {
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (window.location.search == "badges#") {  //Displays badges section at badges url
+	    else if (window.location.hash == "badges#") {  //Displays badges section at badges url
 	      $("#recipes").css("display", "none");
 	      $("#badges").css("display", "block");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (window.location.search == "about#") {  //Displays about section at about url
+	    else if (window.location.hash == "about#") {  //Displays about section at about url
 	      $("#badges").css("display", "none");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
 	    }
