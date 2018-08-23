@@ -10,7 +10,7 @@ $( document ).ready(function() {
           document.getElementById("badges").style.display = "block";
       }
 
-      window.location.hash = "#";  //Sets url to home page "/#"
+      location.hash = "#";  //Sets url to home page "/#"
 	}
 
 
@@ -25,15 +25,15 @@ $( document ).ready(function() {
 
     $(function () {  //Changes URL when menu is clicked
         $(".menu_recipes").click(function () {
-        	window.location.hash = "recipes";
+        	location.hash = "recipes";
             // updateUrl('#recipes');
         });
         $(".menu_badges").click(function () {
-        	window.location.hash = "badges";
+        	location.hash = "badges";
             // updateUrl('#badges');
         });
         $(".menu_about").click(function () {
-         	window.location.hash = "about";
+         	location.hash = "about";
            // updateUrl('#about');
         });
     });
@@ -43,7 +43,7 @@ $( document ).ready(function() {
     });
 
     function render(url) {
-	    if (window.location.hash == "#recipes") {  //Displays recipes section at recipes url
+	    if (location.hash == "#recipes") {  //Displays recipes section at recipes url
 	      $("#recipes").css("display", "block");
 	      if(window.innerWidth >= 1280) {
 	          document.getElementById("badges").style.display = "block";
@@ -53,13 +53,13 @@ $( document ).ready(function() {
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    };
 
-	    if (window.location.hash == "#badges") {  //Displays badges section at badges url
+	    if (location.hash == "#badges") {  //Displays badges section at badges url
 	      $("#recipes").css("display", "none");
 	      $("#badges").css("display", "block");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    };
 
-	    if (window.location.hash == "#about") {  //Displays about section at about url
+	    if (location.hash == "#about") {  //Displays about section at about url
 	      $("#badges").css("display", "none");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
 	    };
