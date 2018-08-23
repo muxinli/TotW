@@ -1,44 +1,28 @@
 $( document ).ready(function() {
+ 	var url = window.location.pathname;  //Gets the final part of the url... but it's not changing with changes to the url
+ 	console.log('url last is' + url);
 
-	// function updateUrl (page, url) {  //Updates URL without reloading
-	//       if (typeof (history.pushState) != "undefined") {
-	//         var obj = { Page: page, Url: url };
-	//         history.pushState(obj, obj.Page, obj.Url);
-	//       } else {  //Alerts if browser is not HTML5 compatible
-	//         alert("This browser does not support HTML5. Please use the latest version of Chrome.");
-	//       }
-	//     }
-
-	//    $(function () {  //Changes URL when menu is clicked
-	//        $(".menu_recipes").click(function () {
-	//            updateUrl('Page1', 'recipes');
-	//        });
-	//        $(".menu_badges").click(function () {
-	//            updateUrl('Page2', 'badges');
-	//        });
-	//        $(".menu_about").click(function () {
-	//            updateUrl('Page3', 'about');
-	//        });
-	//    });
-
-	$(".menu_recipes").click(function () {  //Updates URL without reload upon menu item click
-		window.location.hash = 'recipes';
+	$(".menu_recipes").click(function () {  //Updates URL without reload upon menu item click... but appears with a hashtag
+		history.pushState(null, null, '/recipes');
+   		console.log("location is " + url);
+   		load(url);  //Trigger function to display content based on url
 	});
 	$(".menu_badges").click(function () {
-		window.location.hash = 'badges';
+		history.pushState(null, null, '/badges');
+		console.log("location is " + url);
+   		load(url);
 	});
 	$(".menu_about").click(function () {
-		window.location.hash = 'about';
+		history.pushState(null, null, '/about');
+		console.log("location is " + url);
+   		load(url);
 	});
 
 	window.onload = load(url);  //Triggers load(url) on first load
-
-	window.onhashchange = load(url);  //Triggers load(url) whenever the URL changes
-
+	
+    
     function load(url) {  //Determine which content displays based on URL
-    	var url = window.location.hash;
-    	console.log(url);
-	    if (url == "") {
+	    if (url == "/") {  //If using location.pathname, use '/' for homepage
 	    	document.getElementById("badges").style.display = "none";
 	        document.querySelector("#createdBy").style.display = "none";
 	        document.querySelector("#Nintendo").style.display = "none";
