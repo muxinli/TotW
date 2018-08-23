@@ -9,21 +9,26 @@ $( document ).ready(function() {
 	//       }
 	//     }
 
- //    $(function () {  //Changes URL when menu is clicked
- //        $(".menu_recipes").click(function () {
- //            updateUrl('Page1', 'recipes');
- //        });
- //        $(".menu_badges").click(function () {
- //            updateUrl('Page2', 'badges');
- //        });
- //        $(".menu_about").click(function () {
- //            updateUrl('Page3', 'about');
- //        });
- //    });
+	//    $(function () {  //Changes URL when menu is clicked
+	//        $(".menu_recipes").click(function () {
+	//            updateUrl('Page1', 'recipes');
+	//        });
+	//        $(".menu_badges").click(function () {
+	//            updateUrl('Page2', 'badges');
+	//        });
+	//        $(".menu_about").click(function () {
+	//            updateUrl('Page3', 'about');
+	//        });
+	//    });
 
-    function load(url) {
-    	console.log(window.location.hash);
-	    if (window.location.hash == "") {
+	window.onload = load(url);  //Triggers load(url) on first load
+
+	window.onhashchange = load(url);  //Triggers load(url) whenever the URL changes
+
+    function load(url) {  //Determine which content displays based on URL
+    	var url = window.location.hash;
+    	console.log(url);
+	    if (url == "") {
 	    	document.getElementById("badges").style.display = "none";
 	        document.querySelector("#createdBy").style.display = "none";
 	        document.querySelector("#Nintendo").style.display = "none";
@@ -35,7 +40,7 @@ $( document ).ready(function() {
 	        }
 	    }
 
-	    else if (window.location.hash == "recipes#") {  //Displays recipes section at recipes url
+	    else if (url == "recipes#") {  //Displays recipes section at recipes url
 	      $("#recipes").css("display", "block");
 	      if(window.innerWidth >= 1280) {
 	          document.getElementById("badges").style.display = "block";
@@ -45,13 +50,13 @@ $( document ).ready(function() {
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (window.location.hash == "badges#") {  //Displays badges section at badges url
+	    else if (url == "badges#") {  //Displays badges section at badges url
 	      $("#recipes").css("display", "none");
 	      $("#badges").css("display", "block");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
 	    }
 
-	    else if (window.location.hash == "about#") {  //Displays about section at about url
+	    else if (url == "about#") {  //Displays about section at about url
 	      $("#badges").css("display", "none");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
 	    }
