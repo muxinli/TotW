@@ -1,15 +1,7 @@
 $( document ).ready(function() {
+	$(window).trigger('hashchange');
+
 	window.onload = function() {
-      document.getElementById("badges").style.display = "none";
-      document.querySelector("#createdBy").style.display = "none";
-      document.querySelector("#Nintendo").style.display = "none";
-      document.querySelector("#credits").style.display = "none";
-      document.querySelector("#thanks").style.display = "none";
-
-      if(window.innerWidth >= 1280) {  //Display badges on the right if browser size is at least 1280px
-          document.getElementById("badges").style.display = "block";
-      }
-
       location.hash = "#";  //Sets url to home page "/#"
 	}
 
@@ -43,26 +35,33 @@ $( document ).ready(function() {
     });
 
     function render(url) {
-	    if (location.hash == "#recipes") {  //Displays recipes section at recipes url
-	      $("#recipes").css("display", "block");
-	      if(window.innerWidth >= 1280) {
-	          document.getElementById("badges").style.display = "block";
-	      } else {
-	          $("#badges").css("display", "none");
-	      }
-	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
-	    };
+	    if (location.hash == "#") {
+			document.getElementById("badges").style.display = "none";
+			document.querySelector("#createdBy").style.display = "none";
+			document.querySelector("#Nintendo").style.display = "none";
+			document.querySelector("#credits").style.display = "none";
+			document.querySelector("#thanks").style.display = "none";
 
-	    if (location.hash == "#badges") {  //Displays badges section at badges url
+			if(window.innerWidth >= 1280) {  //Display badges on the right if browser size is at least 1280px
+			  document.getElementById("badges").style.display = "block";
+			}
+	    } else if (location.hash == "#recipes") {  //Displays recipes section at recipes url
+	    	$("#recipes").css("display", "block");
+	    	$("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
+
+	    	if(window.innerWidth >= 1280) {
+	          document.getElementById("badges").style.display = "block";
+	      	} else {
+	            $("#badges").css("display", "none");
+	      	}
+	    } else if (location.hash == "#badges") {  //Displays badges section at badges url
 	      $("#recipes").css("display", "none");
 	      $("#badges").css("display", "block");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "none");
-	    };
-
-	    if (location.hash == "#about") {  //Displays about section at about url
+	    } else if (location.hash == "#about") {  //Displays about section at about url
 	      $("#badges").css("display", "none");
 	      $("#createdBy, #Nintendo, #credits, #thanks").css("display", "block");
-	    };
+	    }
     }
 
 });
