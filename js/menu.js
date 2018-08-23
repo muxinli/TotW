@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-window.onload = function() {
+window.onload = function() {  //Displays content on page load, determined by screen size
       document.getElementById("badges").style.display = "none";
       document.querySelector("#createdBy").style.display = "none";
       document.querySelector("#Nintendo").style.display = "none";
@@ -12,7 +12,7 @@ window.onload = function() {
       }
 }
 
-    $("#swipe").swipe({  //Opens the menu sidebar
+    $("#swipe").swipe({  //Opens the menu sidebar with swipe
       swipeStatus:function(event, phase, direction, distance, duration, fingers)
           {
               if (phase=="move" && direction =="right") {
@@ -34,7 +34,7 @@ window.onload = function() {
           }
     });
 
-    $(".menu_icon").on("click", function() {
+    $(".menu_icon").on("click", function() {  //Opens menu sidebar when menu icon is clicked
       $("#swipe").addClass("open-sidebar");
       $(".menu_icon").delay(150).queue(function (next) {
         $(this).css("visibility", "hidden");
