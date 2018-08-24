@@ -17,29 +17,7 @@
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/badges.js"></script>
 	<script type="text/javascript" src="js/about.js"></script>
-	<script type="text/javascript">
-	    function updateUrl (page, url) {  //Updates URL without reloading
-	      if (typeof (history.pushState) != "undefined") {
-	        var obj = { Page: page, Url: url };
-	        history.pushState(obj, obj.Page, obj.Url);
-	      } else {  //Alerts if browser is not HTML5 compatible
-	        alert("This browser does not support HTML5. Please use the latest version of Chrome.");
-	      }
-	    }
-
-	    $(function () {
-	        $(".menu_recipes").click(function () {
-	            updateUrl('Page1', '/recipes');
-	        });
-	        $(".menu_badges").click(function () {
-	            updateUrl('Page2', '/badges');
-	        });
-	        $(".menu_about").click(function () {
-	            updateUrl('Page3', '/about');
-	        });
-	    });
-	</script>
-
+	<script type="text/javascript" src="js/url.js">	</script>
 </head>
 
 <body>
@@ -58,9 +36,9 @@
 <div id="swipe">
 	<div id="sidebar">
 		<ul>
-			<li><a href="#" class="menu_recipes">Recipes</a></li>
-			<li><a href="#" class="menu_badges">Badges</a></li>
-			<li><a href="#" class="menu_about">About the app</a></li>
+			<li><a href="recipes" class="menu_recipes">Recipes</a></li>
+			<li><a href="badges" class="menu_badges">Badges</a></li>
+			<li><a href="about" class="menu_about">About the app</a></li>
 		</ul>
 	</div>
 </div>
@@ -68,9 +46,9 @@
 <!-- Top menu nav bar -->
 <div id="sidebar2">
 	<ul>
-		<li id="one"><a href="#" class="menu_recipes">Recipes</a></li>
-		<li id="two"><a href="#" class="menu_badges">Badges</a></li>
-		<li id="three"><a href="#" class="menu_about">About the app</a></li>
+		<li id="one"><a href="recipes" class="menu_recipes">Recipes</a></li>
+		<li id="two"><a href="badges" class="menu_badges">Badges</a></li>
+		<li id="three"><a href="about" class="menu_about">About the app</a></li>
 	</ul>
 </div>
 <!-- About section: Has to be at the top in order to get the right positions for its divs. Method for getting top positions of each div wouldn't work when they were wrapped up in another div -->  
