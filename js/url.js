@@ -24,16 +24,14 @@ $( document ).ready(function() {
 	document.addEventListener('keydown', function(event) {
 		if (event.which == '37') {
 	    window.history.back();
-	  } else if (event.which == '39') {
-	    window.history.forward();
-	  } else if (event.which == '27') {
-	    if (document.getElementById("overlay").style.display == "block" && document.getElementById("options").style.display == "block") {
-	    	close();
-	    } else if (document.getElementById("overlay2").style.display == "block" && document.querySelector(".recipe_view.show").className == true) {
-	    	document.getElementById("overlay2").style.display = "none";
-    		document.querySelector(".recipe_view.show").className = "recipe_view hide";
-	    }
-	  }
+		} else if (event.which == '39') {
+		window.history.forward();
+		} else if (event.which == '27') {
+		    document.getElementById("overlay").style.display = "none";
+		    document.getElementById("options").style.display = "none";
+			document.getElementById("overlay2").style.display = "none";
+			document.querySelector(".recipe_view.show").className = "recipe_view hide";
+		}
 	});
 
     function load(url) {  //Determine which content displays based on URL
