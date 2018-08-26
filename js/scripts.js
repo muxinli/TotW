@@ -1,5 +1,5 @@
 // Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. Anything that pulls from JSON goes here.
-$( document ).ready(function() {  
+// $( document ).ready(function() {  
 
 //Adding document.ready in this file may override the code for showing and hiding detailed views. That code depends on this code to run first. Making this code file depend on other documents to load first before running will run the code out of order.
 
@@ -377,4 +377,4 @@ function notes(allRecipes) {  //Pulls footNotes text from JSON and adds to HTML 
 }
 
 
-});  //End of document ready load
+// });  //End of document ready load
