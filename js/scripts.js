@@ -1,37 +1,40 @@
-// Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. Anything that pulls from JSON goes here.
-// $( document ).ready(function() {  //Adding document.ready in this file will override the code for showing and hiding detailed views. That code depends on this code to run first. Making this code file depend on other documents to load first before running will run the code out of order.
+// Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
+// Open recipe modal view and close
 
-  var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'text';
-  request.send();
+$( document ).ready(function() {  
 
-  var getURL = 'https://muxinli.github.io/descriptions.json';  //Request descriptions JSON file from URL
-  var get = new XMLHttpRequest();
-  get.open('GET', getURL);
-  get.responseType = 'text';
-  get.send();
+var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'text';
+request.send();
 
-  request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-    var recipes = JSON.parse(request.response);
-    var allRecipes = recipes.data;
-    console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
-    list(allRecipes);
-    viewCard(allRecipes);
-    imgSrc(allRecipes);
-    hearts(allRecipes);
-    addEffect(allRecipes, effectRecipes);
-    rupees(allRecipes);
-    ingredients(allRecipes);
-    notes(allRecipes);
+var getURL = 'https://muxinli.github.io/descriptions.json';  //Request descriptions JSON file from URL
+var get = new XMLHttpRequest();
+get.open('GET', getURL);
+get.responseType = 'text';
+get.send();
 
-    get.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-      var descriptions = JSON.parse(get.response);
-      console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
-      describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
-    }
+request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
+  var recipes = JSON.parse(request.response);
+  var allRecipes = recipes.data;
+  console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
+  list(allRecipes);
+  viewCard(allRecipes);
+  imgSrc(allRecipes);
+  hearts(allRecipes);
+  addEffect(allRecipes, effectRecipes);
+  rupees(allRecipes);
+  ingredients(allRecipes);
+  notes(allRecipes);
+  modal();
+
+  get.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
+    var descriptions = JSON.parse(get.response);
+    console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
+    describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
   }
+}
 
 
 function list(allRecipes) {  //Dynamically creates HTML tags for the recipe list.
@@ -187,20 +190,6 @@ function viewCard(allRecipes) {  //Creates recipe cards
     var ingredients = document.createElement("div");
     divView.appendChild(ingredients);
     ingredients.setAttribute("class", "ingredients");
-
-    // var hdrIngredients = document.createElement("h3");
-    // ingredients.appendChild(hdrIngredients);
-    // hdrIngredients.setAttribute("class", "d-inline-block ingredientsHdr");
-    // hdrIngredients.textContent = "Ingredients: ";
-    
-    //Images of ingredients?    
-//     var imgDiv = document.createElement("div");
-//     ingredients.appendChild(imgDiv);
-//     imgDiv.setAttribute("class", "ingImgDiv");
-
-//     var imgIng = document.createElement("img");
-//     imgDiv.appendChild(imgIng);
-//     imgIng.setAttribute("class", "ingImg tmpingImg");
 
     var txtDiv = document.createElement("div");
     ingredients.appendChild(txtDiv);
@@ -373,4 +362,34 @@ function notes(allRecipes) {  //Pulls footNotes text from JSON and adds to HTML 
 }
 
 
-// });  //End of document ready load
+function modal() {  ////Hides all recipe view cards, and only shows one when its recipe list is clicked on.
+	$(".recipe_list").click(function() {  //Shows correct view card when recipe is clicked on from the list
+	var view = document.querySelectorAll(".recipe_view");
+	var listId = $(this).attr("id");  //Store the id value of the recipe list element clicked on
+	document.getElementById("overlay2").style.display = "block";
+		for (var x = 0; x < view.length; x++) {  //Go through each view card to find the matching card to display
+			var viewId = $(".recipe_view")[x].id;  //Get the id of the view card in list
+			
+			if (listId == viewId) {  //Display the view card if its id matches the id of the recipe list that was clicked on
+				view[x].className = "recipe_view show";
+			} else {
+				continue;
+			}
+		}
+	});
+
+	//Hides view card when 'x' is clicked
+	$("#exit").click(function() {
+		document.getElementById("overlay2").style.display = "none";
+	    document.querySelector(".recipe_view.show").className = "recipe_view hide";
+	});
+
+	//Hides view card when clicking outside the box
+	$("#overlay2").click(function () {
+		document.getElementById("overlay2").style.display = "none";
+		document.querySelector(".recipe_view.show").className = "recipe_view hide";
+	});
+}
+
+
+});  //End of document ready load
