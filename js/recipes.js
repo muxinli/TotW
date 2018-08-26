@@ -1,5 +1,9 @@
 var allRecipes = [
     {
+      "item": "Fake entry",
+      "requirements": "None"
+    },
+    {
       "item": "Copious Meat Skewers",
       "requirements": ["Any four different raw meats"],
       "dish": "Meat",
