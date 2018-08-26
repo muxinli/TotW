@@ -1,37 +1,41 @@
 // Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. Anything that pulls from JSON goes here.
-// $( document ).ready(function() {  //Adding document.ready in this file will override the code for showing and hiding detailed views. That code depends on this code to run first. Making this code file depend on other documents to load first before running will run the code out of order.
+$( document ).ready(function() {  
 
-  var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'text';
-  request.send();
+//Adding document.ready in this file may override the code for showing and hiding detailed views. That code depends on this code to run first. Making this code file depend on other documents to load first before running will run the code out of order.
 
-  var getURL = 'https://muxinli.github.io/descriptions.json';  //Request descriptions JSON file from URL
-  var get = new XMLHttpRequest();
-  get.open('GET', getURL);
-  get.responseType = 'text';
-  get.send();
+var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'text';
+request.send();
 
-  request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-    var recipes = JSON.parse(request.response);
-    var allRecipes = recipes.data;
-    console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
-    list(allRecipes);
-    viewCard(allRecipes);
-    imgSrc(allRecipes);
-    hearts(allRecipes);
-    addEffect(allRecipes, effectRecipes);
-    rupees(allRecipes);
-    ingredients(allRecipes);
-    notes(allRecipes);
+// var getURL = 'https://muxinli.github.io/descriptions.json';  //Request descriptions JSON file from URL
+// var get = new XMLHttpRequest();
+// get.open('GET', getURL);
+// get.responseType = 'text';
+// get.send();
 
-    get.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-      var descriptions = JSON.parse(get.response);
-      console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
-      describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
-    }
-  }
+request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
+  var recipes = JSON.parse(request.response);
+  var allRecipes = recipes.data;
+  console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
+  list(allRecipes);
+  viewCard(allRecipes);
+  imgSrc(allRecipes);
+  hearts(allRecipes);
+  addEffect(allRecipes, effectRecipes);
+  rupees(allRecipes);
+  ingredients(allRecipes);
+  notes(allRecipes);
+  console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
+  describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
+
+  // get.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
+  //   // var descriptions = JSON.parse(get.response);
+  //   console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
+  //   describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
+  // }
+}
 
 
 function list(allRecipes) {  //Dynamically creates HTML tags for the recipe list.
@@ -373,4 +377,4 @@ function notes(allRecipes) {  //Pulls footNotes text from JSON and adds to HTML 
 }
 
 
-// });  //End of document ready load
+});  //End of document ready load
