@@ -481,6 +481,11 @@ $break-large: 1900px;
   width: 145px;
   vertical-align: middle;
   text-align: center;
+
+  @media screen and (min-width: 400px) {
+    width: 65%;
+    text-align: left;
+  }
 }
 
 /*Div of stats in recipe cards*/

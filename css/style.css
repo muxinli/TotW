@@ -477,6 +477,12 @@
   vertical-align: middle;
   text-align: center;
 }
+@media screen and (min-width: 400px) {
+  .titleTxt {
+    width: 65%;
+    text-align: left;
+  }
+}
 
 /*Div of stats in recipe cards*/
 .statsDiv {
