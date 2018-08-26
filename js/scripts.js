@@ -1,7 +1,7 @@
 // Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
 // Open recipe modal view and close
 
-$( document ).ready(function() {  
+// $( document ).ready(function() {  //Adding document.ready crashes other scripts - depends on this file to run
 
 var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
 var request = new XMLHttpRequest();
@@ -392,4 +392,4 @@ function modal() {  ////Hides all recipe view cards, and only shows one when its
 }
 
 
-});  //End of document ready load
+// });  //End of document ready load
