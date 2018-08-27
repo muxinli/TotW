@@ -175,7 +175,7 @@ $break-large: 1900px;
 }
 
 /*Dark background when filter menu is opened*/
-#overlay {
+@mixin z($z) {
   position: fixed;
   display: none;
   height: 100%;
@@ -185,7 +185,15 @@ $break-large: 1900px;
   right: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 4;
+  z-index: $z;
+}
+
+#overlay {
+  @include z(1);
+}
+
+#overlay2 {
+  @include z(2);
 }
 
 /*Filter menu window*/
