@@ -3,239 +3,239 @@
 	<title>Taste of the Wild</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="js/effects.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
-	<script type="text/javascript" src="js/persist.js"></script>
-	<script type="text/javascript" src="js/search.js"></script>
-	<script type="text/javascript" src="js/clear.js"></script>
-	<script type="text/javascript" src="js/filter.js"></script>
-	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/badges.js"></script>
-	<script type="text/javascript" src="js/about.js"></script>
-	<script type="text/javascript" src="js/url.js">	</script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
+	<!-- Side swipe for menu -->
+	<div id="swipe">
+		<div id="sidebar">
+			<ul>
+				<li><a href="recipes" class="menu_recipes">Recipes</a></li>
+				<li><a href="badges" class="menu_badges">Badges</a></li>
+				<li><a href="about" class="menu_about">About the app</a></li>
+			</ul>
+		</div>
+	</div>
 
-<!-- Side swipe for menu -->
-<div id="swipe">
-	<div id="sidebar">
+	<!-- Top menu nav bar; needs to be separate from left-positioned swipe div-->
+	<div id="menu_top">
 		<ul>
-			<li><a href="recipes" class="menu_recipes">Recipes</a></li>
-			<li><a href="badges" class="menu_badges">Badges</a></li>
-			<li><a href="about" class="menu_about">About the app</a></li>
+			<li id="one"><a href="recipes" class="menu_recipes">Recipes</a></li>
+			<li id="two"><a href="badges" class="menu_badges">Badges</a></li>
+			<li id="three"><a href="about" class="menu_about">About the app</a></li>
 		</ul>
 	</div>
-</div>
+	<!-- About section: Has to be at the top in order to get the right positions for its divs. -->  
+	<!-- <div id="about">  Method for getting top positions of each div wouldn't work when they were wrapped up in another div -->
+		<div id="createdBy" style="display: block;">
+			<div><img src="static/menu.png" class="menu_icon" alt="Swipe right for menu" style="visibility: visible;"></div>
 
-<!-- Top menu nav bar -->
-<div id="sidebar2">
-	<ul>
-		<li id="one"><a href="recipes" class="menu_recipes">Recipes</a></li>
-		<li id="two"><a href="badges" class="menu_badges">Badges</a></li>
-		<li id="three"><a href="about" class="menu_about">About the app</a></li>
-	</ul>
-</div>
-<!-- About section: Has to be at the top in order to get the right positions for its divs. Method for getting top positions of each div wouldn't work when they were wrapped up in another div -->  
-<!-- <div id="about">  -->
-	<div id="createdBy" style="display: block;">
-		<div><img src="static/menu.png" class="menu_icon" alt="Swipe right for menu" style="visibility: visible;"></div>
-
-		<div class="darkBox">
-			<p>By Muxin Li</p>
-			<a href="https://twitter.com/muxin_li"><img src="static/twitter.png"></a>
-			<div id="twitter"><a href="https://twitter.com/muxin_li">@muxin_li</a></div>
-		</div>
-	</div>
-	
-	<div id="Nintendo">
-		<div class="darkBox">
-			<p>Taste of the Wild was based on <i>Breath of the Wild</i>, a trademark of Nintendo Inc.</p>
-		</div>
-	</div>
-
-	<div id="credits">
-		<div class="darkBox">
-			<div>
-				Images of recipes are owned by Nintendo.
-			</div>
-			<div>
-				<img id="menuIcon" src="static/menu.png" alt="A burger menu icon"> By <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a>*
-			</div>
-			<div>
-				<img id="meatIcon" alt="Meat icon" src="static/meatbw.png"> By <a href="http://freeiconshop.com" title="Icon Shop">Icon Shop</a>
-			</div>
-			<div>
-				<img id="veggieIcon" alt="Apple icon" src="static/applebw.png"> By <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a>*
-			</div>
-			<div>
-				<img id="fishIcon" alt="Fish icon" src="static/fishbw.png"> By <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a>*
-			</div>
-			<div>
-				<img id="cakeIcon" alt="Cake icon" src="static/cakebw.png"> By <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a>*
-			</div>
-			<div>
-				<img id="foodIcon" alt="Cooking pot icon" src="static/potbw.png"> By <a href="https://www.flaticon.com/authors/dimi-kazak" title="Dimi Kazak">Dimi Kazak</a>*
-			</div>
-			<div>
-				Original JSON file of recipes and ingredients: jesperorb on GitHub
-			</div>
-			<div>
-				*from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-			</div>
-
-		</div>
-	</div>
-
-	<div id="thanks">
-		<div class="darkBox">
-    		<h3>Thank YOU!</h3>
-    		<div>See my portfolio: <a href="https://muxinli.github.io/">https://muxinli.github.io/</a></div>
-			<img src="static/cooking.gif" alt="The coolest gif of Link cooking">
-			<p>*Credits: Emi Monserrate @excarabu Tumblr</p>
-		</div>
-	</div>
-<!-- </div> -->
-
-<!-- Recipes section -->
-<div id="recipes">
-	<img src="static/menu.png" class="menu_icon" alt="Swipe right for menu">
-
-	<!-- Search/filter bar -->
-	<div id="sort">
-		<input type="text" id="myInput" placeholder="Search for recipe...">
-		<div id="filter">
-			<a href="#"></a>
-	</div>
-
-	<!-- 	Filter menu options -->
-	<div id="options">
-		<div class="exit2">
-			<span id="exit2">x</span>
-		</div>
-		<div id="cookedYet">
-			<input type="radio" name="cook" id="all" checked="checked">All
-			<input type="radio" name="cook" id="cooked">Cooked
-			<input type="radio" name="cook" id="uncooked">Uncooked
-		</div>
-		<div id="heartAmt">Hearts
-			<div class="slideContainer">
-				<input type="range" min="0.25" max="28" value="0.25" id="heartRange">
-				<p id="heartValue"></p>
-			</div>
-
-		</div>
-		<div id="rupeeAmt">Rupees
-			<div class="slideContainer">
-				<input type="range" min="2" max="490" value="2" id="rupeeRange">
-				<p id="rupeeValue"></p>
+			<div class="darkBox">
+				<p>By Muxin Li</p>
+				<a href="https://twitter.com/muxin_li"><img src="static/twitter.png"></a>
+				<div id="twitter"><a href="https://twitter.com/muxin_li">@muxin_li</a></div>
 			</div>
 		</div>
-		<div id="types">Type<br>
-			<div><input type="checkbox" id="meat">Meat</div>
-			<div><input type="checkbox" id="veggies">Veggies</div>
-			<div><input type="checkbox" id="fish">Fish</div>
-			<div><input type="checkbox" id="dessert">Dessert</div>
+		
+		<div id="Nintendo">
+			<div class="darkBox">
+				<p>Taste of the Wild was based on <i>Breath of the Wild</i>, a trademark of Nintendo Inc.</p>
+			</div>
 		</div>
-	</div>
-	<div id="overlay"></div>
-	<div id="overlay2"></div>
 
-	</div>
+		<div id="credits">
+			<div class="darkBox">
+				<div>
+					Images of recipes are owned by Nintendo.
+				</div>
+				<div>
+					<img id="menuIcon" src="static/menu.png" alt="A burger menu icon"> By <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a>*
+				</div>
+				<div>
+					<img id="meatIcon" alt="Meat icon" src="static/meatbw.png"> By <a href="http://freeiconshop.com" title="Icon Shop">Icon Shop</a>
+				</div>
+				<div>
+					<img id="veggieIcon" alt="Apple icon" src="static/applebw.png"> By <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a>*
+				</div>
+				<div>
+					<img id="fishIcon" alt="Fish icon" src="static/fishbw.png"> By <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a>*
+				</div>
+				<div>
+					<img id="cakeIcon" alt="Cake icon" src="static/cakebw.png"> By <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a>*
+				</div>
+				<div>
+					<img id="foodIcon" alt="Cooking pot icon" src="static/potbw.png"> By <a href="https://www.flaticon.com/authors/dimi-kazak" title="Dimi Kazak">Dimi Kazak</a>*
+				</div>
+				<div>
+					Original JSON file of recipes and ingredients: jesperorb on GitHub
+				</div>
+				<div>
+					*from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+				</div>
 
-	<!-- Recipe list	 -->
-	<div id="main_list">
-<!-- These tags are dynamically created in scripts.js, but keep these comments to help plan and organize the tags and classes for styling. -->
-<!-- 	<div class="recipe_list">
-			<img src="#" class="d-inline-block list">
-			<h2 class="d-inline-block">
-		</div> -->
-	</div>
+			</div>
+		</div>
 
-<!-- Modal/view of recipe card - image, summary of effects, description. -->
-	<div id="recipe_cards">
-<!-- These tags are dynamically created in scripts.js, but keep these comments to help plan and organize the tags and classes for styling. -->
-<!-- 	<div class="recipe_view" id="Copious Meat Skewers">
-			<label class="container">
-				<input type="checkbox">
-				<span class="checkmark"></span>
-			</label>
-			<div class="img">
-				<img class="d-inline-block view" src="static/Copious Meat Skewers.png">
+		<div id="thanks">
+			<div class="darkBox">
+	    		<h3>Thank YOU!</h3>
+	    		<div>See my portfolio: <a href="https://muxinli.github.io/">https://muxinli.github.io/</a></div>
+				<img src="static/cooking.gif" alt="The coolest gif of Link cooking">
+				<p>*Credits: Emi Monserrate @excarabu Tumblr</p>
+			</div>
+		</div>
+	<!-- </div> -->
+
+	<!-- Recipes section -->
+	<div id="recipes">
+		<img src="static/menu.png" class="menu_icon" alt="Swipe right for menu">
+
+		<!-- Search/filter bar -->
+		<div id="sort">
+			<input type="text" id="myInput" placeholder="Search for recipe...">
+			<div id="filter">
+				<a href="#"></a>
+			</div>
+
+			<!-- 	Filter menu options -->
+			<div id="options">
+				<div class="exit2">
+					<span id="exit2">x</span>
+				</div>
+				<div id="cookedYet">
+					<input type="radio" name="cook" id="all" checked="checked">All
+					<input type="radio" name="cook" id="cooked">Cooked
+					<input type="radio" name="cook" id="uncooked">Uncooked
+				</div>
+				<div id="heartAmt">Hearts
+					<div class="slideContainer">
+						<input type="range" min="0.25" max="28" value="0.25" id="heartRange">
+						<p id="heartValue"></p>
+					</div>
+
+				</div>
+				<div id="rupeeAmt">Rupees
+					<div class="slideContainer">
+						<input type="range" min="2" max="490" value="2" id="rupeeRange">
+						<p id="rupeeValue"></p>
+					</div>
+				</div>
+				<div id="types">Type<br>
+					<div><input type="checkbox" id="meat">Meat</div>
+					<div><input type="checkbox" id="veggies">Veggies</div>
+					<div><input type="checkbox" id="fish">Fish</div>
+					<div><input type="checkbox" id="dessert">Dessert</div>
+				</div>
+			</div>
+			<div id="overlay"></div>
+			<div id="overlay2"></div>
+		</div>
+
+		<!-- Recipe list	 -->
+		<div id="main_list">
+	<!-- These tags are dynamically created in scripts.js, but keep these comments to help plan and organize the tags and classes for styling. -->
+	<!-- 	<div class="recipe_list">
+				<img src="#" class="d-inline-block list">
+				<h2 class="d-inline-block">
 			</div> -->
-	<!-- 	<div class="title">
-				<h2 class="d-inline-block">Copious Meat Skewers</h2>
-			</div>
-			<div class="heart">
-				<img class="d-inline-block heartIcon" src="static/heart.png">
-				<p class="d-inline-block heartTxt">x13-19</p>
-			</div>
-			<div class="effects">
-				<img class="d-inline-block effectIcon" src="static/electro.png">
-				<p class="d-inline-block effectTxt">1:30</p>
-			</div>
-			<div class="rupees">
-				<img class="d-inline-block rupeeIcon" src="static/rupee.png">
-				<p class="d-inline-block rupeesTxt">160-290</p>
-			</div>
-			<div class="ingredients"></div>
-				<div class="ingImgDiv">
-					<img class="ingImg tmpingImg">
-				</div>
-				<div class="ingTxtDiv">
-					<p class="ingredientsTxt">Any four different raw meats</p>
-				</div>
-			<div class="description">
-				<p class="descTxt">Just shove a bunch of meat on to a skewer and you're good to go.</p>
-			</div>
-			<div class="notes">
-				<h3 class="d-inline-block notesHdr">Notes: </h3>
-				<p class="notesTxt">2 Raw Gourmet Meats + 1 Raw Prime Meat + 1 Raw Meat + 1 Raw Bird Drumstick<br>Same as max possible hearts</p>
-			</div>
 		</div>
- -->
-	</div>
-</div>
 
-<!-- Badges section -->
-<div id="badges">
-	<div class="menu_icon"><img src="static/menu.png" class="menu_icon" alt="Swipe right for menu"></div>
+	<!-- Modal/view of recipe card - image, summary of effects, description. -->
+		<div id="recipe_cards">
+	<!-- These tags are dynamically created in scripts.js, but keep these comments to help plan and organize the tags and classes for styling. -->
+	<!-- 	<div class="recipe_view" id="Copious Meat Skewers">
+				<label class="container">
+					<input type="checkbox">
+					<span class="checkmark"></span>
+				</label>
+				<div class="img">
+					<img class="d-inline-block view" src="static/Copious Meat Skewers.png">
+				</div> -->
+		<!-- 	<div class="title">
+					<h2 class="d-inline-block">Copious Meat Skewers</h2>
+				</div>
+				<div class="heart">
+					<img class="d-inline-block heartIcon" src="static/heart.png">
+					<p class="d-inline-block heartTxt">x13-19</p>
+				</div>
+				<div class="effects">
+					<img class="d-inline-block effectIcon" src="static/electro.png">
+					<p class="d-inline-block effectTxt">1:30</p>
+				</div>
+				<div class="rupees">
+					<img class="d-inline-block rupeeIcon" src="static/rupee.png">
+					<p class="d-inline-block rupeesTxt">160-290</p>
+				</div>
+				<div class="ingredients"></div>
+					<div class="ingImgDiv">
+						<img class="ingImg tmpingImg">
+					</div>
+					<div class="ingTxtDiv">
+						<p class="ingredientsTxt">Any four different raw meats</p>
+					</div>
+				<div class="description">
+					<p class="descTxt">Just shove a bunch of meat on to a skewer and you're good to go.</p>
+				</div>
+				<div class="notes">
+					<h3 class="d-inline-block notesHdr">Notes: </h3>
+					<p class="notesTxt">2 Raw Gourmet Meats + 1 Raw Prime Meat + 1 Raw Meat + 1 Raw Bird Drumstick<br>Same as max possible hearts</p>
+				</div>
+			</div>
+	 -->
+		</div>
+	</div>
 
-	<div>
-		<img id="meatBadge" src="static/meatbw.png" alt="Carnivore badge. Something meaty was pictured here.">
-		<h3>Carnivore</h3>
-		<p>All Meat dishes cooked</p>
-	</div>
-	<div>
-		<img id="veggieBadge" alt="Vegetarian badge. It was a plant picture of some kind.">
-		<h3>Vegetarian</h3>
-		<p>All Veggie dishes cooked</p>
-	</div>
-	<div>
-		<img id="fishBadge" alt="Pescatarian badge. An image of a fish, but not the Swedish kind.">
-		<h3>Pescatarian</h3>
-		<p>All Fish dishes cooked</p>
-	</div>
-	<div>
-		<img id="cakeBadge" alt="Sweeth Tooth badge. A tasty looking cake you can have and eat at the same time.">
-		<h3>Sweet Tooth</h3>
-		<p>All Dessert dishes cooked</p>
-	</div>
-	<div>
-		<img id="foodBadge" alt="Nomnivore badge. When you've cooked all there is to nom, and now you have lots of leftovers.">
-		<h3>Nomnivore</h3>
-		<p>All recipes cooked</p>
+	<!-- Badges section -->
+	<div id="badges">
+		<div class="menu_icon"><img src="static/menu.png" class="menu_icon" alt="Swipe right for menu"></div>
+
+		<div>
+			<img id="meatBadge" src="static/meatbw.png" alt="Carnivore badge. Something meaty was pictured here.">
+			<h3>Carnivore</h3>
+			<p>All Meat dishes cooked</p>
+		</div>
+		<div>
+			<img id="veggieBadge" alt="Vegetarian badge. It was a plant picture of some kind.">
+			<h3>Vegetarian</h3>
+			<p>All Veggie dishes cooked</p>
+		</div>
+		<div>
+			<img id="fishBadge" alt="Pescatarian badge. An image of a fish, but not the Swedish kind.">
+			<h3>Pescatarian</h3>
+			<p>All Fish dishes cooked</p>
+		</div>
+		<div>
+			<img id="cakeBadge" alt="Sweeth Tooth badge. A tasty looking cake you can have and eat at the same time.">
+			<h3>Sweet Tooth</h3>
+			<p>All Dessert dishes cooked</p>
+		</div>
+		<div>
+			<img id="foodBadge" alt="Nomnivore badge. When you've cooked all there is to nom, and now you have lots of leftovers.">
+			<h3>Nomnivore</h3>
+			<p>All recipes cooked</p>
+		</div>
+
+		<!-- Clear storage -->
+		<input type="button" id="btn" value="Clear progress">
+		<p id="text"></p>
+
 	</div>
 
-	<!-- Clear storage -->
-	<input type="button" id="btn" value="Clear progress">
-	<p id="text"></p>
-
-</div>
+	<script type="text/javascript" src="js/effects.js"></script>
+	<script type="text/javascript" src="js/recipes.js"></script>
+	<script type="text/javascript" src="js/list_cards.js"></script>
+	<script type="text/javascript" src="js/badges.js"></script>
+	<script type="text/javascript" src="js/persist.js"></script>
+	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/filter.js"></script>
+	<script type="text/javascript" src="js/clear.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/about.js"></script>
+	<script type="text/javascript" src="js/url.js">	</script>
 
 </body>
 

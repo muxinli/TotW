@@ -50,20 +50,11 @@ function cooked() {
 
 }  //End of cooked()
 
-//Get hearts, rupees, and food types data from JSON
-var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'text';
-request.send();
+//Start of filter by hearts, rupees, type
+heartFilter(allRecipes);
+rupeeFilter(allRecipes);
+typeFilter(allRecipes);
 
-request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-	var recipes = JSON.parse(request.response);
-	var allRecipes = recipes.data;
-	heartFilter(allRecipes);
-	rupeeFilter(allRecipes);
-	typeFilter(allRecipes);
-}
 
 //Filters by hearts 0.25-28
 function heartFilter(allRecipes){

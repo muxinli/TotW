@@ -4,14 +4,6 @@ $break-tablet-wide: 1024px;
 $break-desktop: 1280px;
 $break-large: 1900px;
 
-/*Loads an image while loading*/
-
-#load {
-  width: 200px;
-  background: center center;
-  z-index: 9;
-}
-
 /*Empty swipe area fixed to left side; eases in and out transition animation*/
 
 #swipe {
@@ -56,9 +48,9 @@ $break-large: 1900px;
 }
 
 
-/*Menu sidebar*/
+/*Menu sidebar and top nav*/
 
-#sidebar, #sidebar2 {
+#sidebar, #menu_top {
   position: absolute;
   left: -150px;
   width: 150px;
@@ -197,11 +189,11 @@ $break-large: 1900px;
 }
 
 #overlay {
-  @include z(1);
+  @include z(4);
 }
 
 #overlay2 {
-  @include z(2);
+  @include z(6);
 }
 
 /*Filter menu window*/
@@ -211,8 +203,7 @@ $break-large: 1900px;
   position: absolute;
   width: 90%;
   height: 60%;
-  z-index: 2;
-  /* Displays modal on top layer above other content */
+  z-index: 5;
   padding: 5%;
   @media screen and (min-width: $break-tablet) {
     display: inline-block !important;
@@ -330,7 +321,6 @@ $break-large: 1900px;
 /*Recipe card window with content*/
 
 .recipe_view {
-  /* Detailed view */
   @media screen and (min-width: $break-tablet) {
     width: auto;
     margin: 15%;
@@ -346,11 +336,10 @@ $break-large: 1900px;
   max-width: 600px;
   margin: 15% 7.5% 0 7.5%;
   background-color: #17a2b8;
-  /* Black w/opacity of 40% */
   color: white;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 7;
 }
 
 /*Div of cooked checkbox*/
@@ -422,7 +411,7 @@ $break-large: 1900px;
 }
 
 
-/* "X" closes detailed view; div container */
+/* "exit" for recipe card modal, "exit2" refers to filter option modal */
 
 .exit {
   display: inline-block;
@@ -430,18 +419,14 @@ $break-large: 1900px;
   right: 10%;
 }
 
-/* "X" closes detailed view */
-
-#exit {
+#exit, #exit2 {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-/*Hover style of "X" close*/
  &:hover {
     color: rgba(31, 54, 78, 0.84);
   }
 }
-
 
 /* Filter box "X" closes detailed view; div container */
 
@@ -454,19 +439,6 @@ $break-large: 1900px;
     display: none;
   }
 }
-
-/* Filter "X" closes detailed view */
-
-#exit2 {
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-/* Filter hover style of "X" close*/
-  &:hover {
-    color: rgba(31, 54, 78, 0.84);
-  }
-}
-
 
 /*Div of recipe card image */
 

@@ -8,7 +8,7 @@ document.getElementById("sidebar").addEventListener("click", function() {  //Add
 	}
 });
 
-document.getElementById("sidebar2").addEventListener("click", function() {  //Add scroll event to just the about section
+document.getElementById("menu_top").addEventListener("click", function() {  //Add scroll event to just the about section
 	if(document.querySelector("#createdBy").style.display == "block") {
 		window.addEventListener("scroll", autoScroll);  //Add event listener to about section when scroll wheel happens
 	} else {
