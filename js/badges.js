@@ -1,17 +1,9 @@
 $( document ).ready(function() {
-	var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
-	var request = new XMLHttpRequest();
-	request.open('GET', requestURL);
-	request.responseType = 'text';
-	request.send();
 
-	request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-	var recipes = JSON.parse(request.response);
-	var allRecipes = recipes.data;
-	badges(allRecipes);
-	}
+badges(allRecipes);
 
 function badges(allRecipes) {
+	console.log('badges.js fired');
 	var meatTotal = 0;
   	var veggieTotal = 0;
   	var fishTotal = 0;

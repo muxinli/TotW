@@ -1,23 +1,8 @@
 // Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
 // Open recipe modal view and close
 
-// $( document ).ready(function() {  //Adding document.ready crashes other scripts - depends on this file to run
+$( document ).ready(function() {  //Waits for DOM to create divs for recipe lists and cards
 
-var requestURL = 'https://muxinli.github.io/recipes%20(ML).json';  //Request recipe JSON file from URL
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'text';
-request.send();
-
-var getURL = 'https://muxinli.github.io/descriptions.json';  //Request descriptions JSON file from URL
-var get = new XMLHttpRequest();
-get.open('GET', getURL);
-get.responseType = 'text';
-get.send();
-
-request.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-  var recipes = JSON.parse(request.response);
-  var allRecipes = recipes.data;
   console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
   list(allRecipes);
   viewCard(allRecipes);
@@ -29,12 +14,8 @@ request.onload = function() {  //Check if request has loaded, then parse text in
   notes(allRecipes);
   modal();
 
-  get.onload = function() {  //Check if request has loaded, then parse text into JS Object for later use.
-    var descriptions = JSON.parse(get.response);
-    console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
-    describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
-  }
-}
+  console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
+  describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
 
 
 function list(allRecipes) {  //Dynamically creates HTML tags for the recipe list.
@@ -43,7 +24,6 @@ function list(allRecipes) {  //Dynamically creates HTML tags for the recipe list
     var divCreate = document.createElement("div");  //Create div tag for each recipe
     list.appendChild(divCreate);  //Add to body
     $("#main_list div").addClass("recipe_list remove");  //Add recipe_list class to each div. The class 'remove' is used later to get our querySelector to select each div one at a time, then move to the next div.	
-
   }
 
   
@@ -58,10 +38,6 @@ function list(allRecipes) {  //Dynamically creates HTML tags for the recipe list
     imgDiv.appendChild(imgTag);  //Add img tag to divList
     $(".recipe_list img").addClass("imgList d-inline-block");  //Add classes to all img tags in divList
     $(".recipe_list img").attr("src", "img");  //Sets src to "img" - sets up a workaround in order to load a different img src for each tag. Other methods just populate the first img tag, or assigns the last img file path in allRecipes to all img src attributes.
-
-//     var h2Div = document.createElement("div");  //Title div for recipe list
-//     divList.appendChild(h2Div);
-//     h2Div.setAttribute("class", "d-inline-block h2Div");
 
     var h2 = document.createElement("h2");  //Title for recipe list
     divList.appendChild(h2);
@@ -366,7 +342,7 @@ function modal() {  ////Hides all recipe view cards, and only shows one when its
 	$(".recipe_list").click(function() {  //Shows correct view card when recipe is clicked on from the list
 	var view = document.querySelectorAll(".recipe_view");
 	var listId = $(this).attr("id");  //Store the id value of the recipe list element clicked on
-	document.getElementById("overlay2").style.display = "block";
+	document.getElementById("overlay").style.display = "block";
 		for (var x = 0; x < view.length; x++) {  //Go through each view card to find the matching card to display
 			var viewId = $(".recipe_view")[x].id;  //Get the id of the view card in list
 			
@@ -380,16 +356,16 @@ function modal() {  ////Hides all recipe view cards, and only shows one when its
 
 	//Hides view card when 'x' is clicked
 	$("#exit").click(function() {
-		document.getElementById("overlay2").style.display = "none";
+		document.getElementById("overlay").style.display = "none";
 	    document.querySelector(".recipe_view.show").className = "recipe_view hide";
 	});
 
 	//Hides view card when clicking outside the box
-	$("#overlay2").click(function () {
-		document.getElementById("overlay2").style.display = "none";
+	$("#overlay").click(function () {
+		document.getElementById("overlay").style.display = "none";
 		document.querySelector(".recipe_view.show").className = "recipe_view hide";
 	});
 }
 
 
-// });  //End of document ready load
+});  //End of document ready load
