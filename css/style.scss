@@ -189,11 +189,11 @@ $break-large: 1900px;
 }
 
 #overlay {
-  @include z(1);
+  @include z(4);
 }
 
 #overlay2 {
-  @include z(2);
+  @include z(6);
 }
 
 /*Filter menu window*/
@@ -339,7 +339,7 @@ $break-large: 1900px;
   color: white;
   position: fixed;
   top: 0;
-  z-index: 5;
+  z-index: 7;
 }
 
 /*Div of cooked checkbox*/

@@ -28,6 +28,7 @@ $( document ).ready(function() {
 		window.history.forward();
 		} else if (event.which == '27') {
 		    document.getElementById("overlay").style.display = "none";
+		    document.getElementById("overlay2").style.display = "none";
 		    document.getElementById("options").style.display = "none";
 			document.querySelector(".recipe_view.show").className = "recipe_view hide";
 		}
