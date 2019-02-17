@@ -1,4 +1,4 @@
-// Creates cards with details on each recipe. Generates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
+// Creates the list of recipes and modal cards with details on each recipe. Generates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
 // Open recipe modal view and close
 
 $( document ).ready(function() {  //Waits for DOM to create divs for recipe lists and cards
