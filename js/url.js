@@ -1,3 +1,5 @@
+//Stores URL changes in browser history, uses keyboard to navigate, displays content based on URL (recipe, badges, about)
+
 $( document ).ready(function() {
 	var menu = document.querySelectorAll(".menu_recipes, .menu_badges, .menu_about");
 

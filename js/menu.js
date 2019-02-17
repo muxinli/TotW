@@ -1,3 +1,5 @@
+//Menu changes according to display size, animates when swiped on
+
 $( document ).ready(function() {
   
   $("#swipe").swipe({  //Opens the menu sidebar with swipe

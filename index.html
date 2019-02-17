@@ -10,6 +10,12 @@
 </head>
 
 <body>
+
+<!-- Disable ad blockers -->
+<!-- <script>
+	alert("Please disable ad blockers for app to load.");
+</script> -->
+
 	<!-- Side swipe for menu -->
 	<div id="swipe">
 		<div id="sidebar">
@@ -29,8 +35,7 @@
 			<li id="three"><a href="about" class="menu_about">About the app</a></li>
 		</ul>
 	</div>
-	<!-- About section: Has to be at the top in order to get the right positions for its divs. -->  
-	<!-- <div id="about">  Method for getting top positions of each div wouldn't work when they were wrapped up in another div -->
+	<!-- About section: Method for auto-scrolling to each section wouldn't work when they were wrapped up in another div - causes issues when trying to get the top positions of each div. About section has to be at the top in order to get the right positions for its divs. -->  
 		<div id="createdBy" style="display: block;">
 			<div><img src="static/menu.png" class="menu_icon" alt="Swipe right for menu" style="visibility: visible;"></div>
 
@@ -88,7 +93,6 @@
 				<p>*Credits: Emi Monserrate @excarabu Tumblr</p>
 			</div>
 		</div>
-	<!-- </div> -->
 
 	<!-- Recipes section -->
 	<div id="recipes">
@@ -188,8 +192,6 @@
 	 -->
 		</div>
 
-		<script type="text/javascript" src="js/effects.js"></script>
-		<script type="text/javascript" src="js/recipes.js"></script>
 	</div>
 
 	<!-- Badges section -->
@@ -228,6 +230,8 @@
 
 	</div>
 
+	<script type="text/javascript" src="js/recipes.js"></script>
+	<script type="text/javascript" src="js/effects.js"></script>
 	<script type="text/javascript" src="js/list_cards.js"></script>
 	<script type="text/javascript" src="js/badges.js"></script>
 	<script type="text/javascript" src="js/persist.js"></script>

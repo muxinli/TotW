@@ -1,4 +1,5 @@
 //Keeps checkbox states after page refresh. Concepts: Objects, adding/referencing to properties in objects, localStorage, adding new properties, checkbox properties, jQuery selectors
+
 $( document ).ready(function() {
 	var values = {};  //Create an empty object called 'values', which will get properties later on. Keep it global as it will be used in different functions.
 	var $checkbox = $('.container :checkbox');

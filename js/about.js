@@ -1,3 +1,5 @@
+//Auto-scrolls to section on about page
+
 $( document ).ready(function(){
 	
 document.getElementById("sidebar").addEventListener("click", function() {  //Add scroll event to just the about section

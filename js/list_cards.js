@@ -1,9 +1,8 @@
-// Creates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
+// Creates cards with details on each recipe. Generates all HTML tags, classes, text content, images, and pulls data from the JSON files. 
 // Open recipe modal view and close
 
 $( document ).ready(function() {  //Waits for DOM to create divs for recipe lists and cards
 
-  console.log("Testing recipes JSON " + allRecipes[1].item);  //Can remove, just checks that JSON was loaded
   list(allRecipes);
   viewCard(allRecipes);
   imgSrc(allRecipes);
@@ -13,8 +12,6 @@ $( document ).ready(function() {  //Waits for DOM to create divs for recipe list
   ingredients(allRecipes);
   notes(allRecipes);
   modal();
-
-  console.log("Testing descriptions JSON " + descriptions[1].Description);  //Optional; checks JSON was loaded
   describing(allRecipes, descriptions);  //Runs function for adding descriptions to each recipe
 
 

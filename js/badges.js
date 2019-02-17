@@ -1,3 +1,5 @@
+//Counts recipes cooked + type and displays badges accordingly - black/white if incomplete, colored if completed
+
 $( document ).ready(function() {
 
 badges(allRecipes);
